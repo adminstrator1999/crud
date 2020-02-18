@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reg_panel</title>
+</head>
+<body>
+<div>
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        Full_name: <input type="text" name='fullName'><br><br>
+        University:<select name="University">
+<option value="%">----------</option>
+    {% for university in universities %}
+    <option value="{{ university.id }}" >{{ university.name }}</option>
+    {% endfor %}
+</select><br><br>
+        Phone: <input type="text" name='phone'><br><br>
+        Level: <input type="text" name='lvl'><br><br>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>

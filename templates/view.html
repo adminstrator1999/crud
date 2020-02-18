@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'view_style.css' %}">
+    <title>view</title>
+</head>
+<body>
+<div>
+   <h1>student's table</h1>
+  <p> <span> full_name:</span> {{ incs.full_name }} </p>
+    <p> <span>university:</span> {{ incs.university }} </p>
+    <p> <span>phone:</span> {{ incs.phone }} </p>
+    <p> <span>level:</span> {{ incs.level }} </p>
+</div>
+</body>
+</html>

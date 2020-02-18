@@ -1,0 +1,81 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+   {% if user.is_authenticated %}
+    Hello, {{ user.username }}
+       <a href="{% url 'users:logout' %}">Log out</a>
+    {% else %}
+    <a href="{% url 'users:login' %}">Log in</a>
+    <a href="{% url 'users:u_register' %}">register</a>
+    {% endif %}
+</head>
+<body>
+
+<div class="table">
+<a href="{% url 'add_student' %}"><span>create_form</span></a>
+<a href="reg"><span>create</span></a>
+
+<form action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="fullName" placeholder="Search">
+    <select name="chosen_university">
+    <option value="%">--------</option>
+        {% for university in universities %}
+        <option value="{{ university.id }}">{{ university.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="search">
+</form>
+
+<table>
+    <thead>
+    <caption><h1>students' table</h1></caption>
+    <tr>
+        <th>full_name</th>
+        <th>university</th>
+        <th>phone</th>
+        <th>level</th>
+        <th>view</th>
+        <th>action</th>
+        <th>edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+        <tr>
+            <td>
+                {{ student.full_name }}
+            </td>
+            <td>
+                {{ student.university }}
+            </td>
+            <td>
+                {{ student.phone }}
+            </td>
+            <td>
+                {{ student.level }}
+            </td>
+            <td>
+                <a href="/view/{{ student.id }}">view</a>
+            </td>
+            <td>
+             <a href="/delete/{{ student.id }}">delete</a>
+            </td>
+            <td>
+             <a href="/edit/{{ student.id }}">edit</a>
+                <a href="{% url 'update_student' student.id %}">update</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+</body>
+</html>

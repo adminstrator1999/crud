@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adding_university</title>
+</head>
+<body>
+<div>
+    <form action="{% url 'add_university' %}" method="post">
+        {% csrf_token %}
+        University_name: <input type="text" name="new_university"><br>
+        <input type="submit">
+
+    </form>
+</div>
+</body>
+</html>

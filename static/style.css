@@ -1,0 +1,35 @@
+body{
+    background-color: darkgrey;
+}
+.table{
+    background-color: white;
+    border: 3px black solid;
+    width:670px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+table{
+    margin: 10px;
+    border-collapse: collapse;
+}
+table, th, td{
+    border:2px black solid;
+    padding: 5px;
+}
+
+.small_table{
+    background-color: white;
+    border: 3px black solid;
+    width:300px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+tr{
+    margin-left: 800px;
+}

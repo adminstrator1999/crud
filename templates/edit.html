@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<form action="{% url 'edition' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ editor.id }}"><br>
+    Full_name: <input type="text" name="fn" value='{{ editor.full_name }}'><br>
+    University:<select name="University">
+    <option value="{{ editor.id }}">{{ editor.university }}</option>
+    {% for university in universities %}
+        {% ifnotequal editor.university_id university.id %}
+            <option value="{{ university.id }}">{{ university.name }}</option>
+        {% endifnotequal %}
+    {% endfor %}
+</select><br><br>
+    Phone: <input type="text" name="pe" value='{{ editor.phone }}'><br>
+    Level: <input type="text" name="ll" value='{{ editor.level }}'><br>
+    <input type="submit">
+</form>
+</body>
+</html>

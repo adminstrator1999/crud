@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>university</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css'%}">
+
+</head>
+<body>
+<a href="{% url 'add_university_page' %}">create</a>
+<div class="small_table">
+<table>
+    <caption class="univer"><h1>universities' table</h1></caption>
+    <div class="tr">
+    <tr>
+        <th>name</th>
+    </tr>
+    <tbody>
+    {% for university in universities %}
+        <tr>
+            <td>{{ university.name }}</td>
+        </tr>
+    {% endfor %}
+    </div>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
