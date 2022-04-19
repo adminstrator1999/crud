@@ -3,6 +3,10 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
 
+def add(x, y):
+    return x + y
+
+
 def u_register(request):
     if request.method != 'POST':
         form = UserCreationForm()
@@ -16,6 +20,3 @@ def u_register(request):
 
     context = {'form': form}
     return render(request, 'registration/u_register.html', context)
-
-
-
