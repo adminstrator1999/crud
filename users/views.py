@@ -7,6 +7,10 @@ def add(x, y):
     return x + y
 
 
+def subtract(x, y):
+    return x - y
+
+
 def u_register(request):
     if request.method != 'POST':
         form = UserCreationForm()
