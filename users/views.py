@@ -12,11 +12,9 @@ def u_register(request):
         form = UserCreationForm()
     else:
         form = UserCreationForm(data=request.POST)
-
         if form.is_valid():
             new_user = form.save()
             login(request, new_user)
             return redirect('table')
-
     context = {'form': form}
     return render(request, 'registration/u_register.html', context)
